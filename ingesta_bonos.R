@@ -255,46 +255,46 @@ resultados <- as.data.frame(as.ts(data3,frequency = 1,
 
 ####################################################################
 
-# Evaluando comportamiento de los últimos 20 días
+# Evaluando comportamiento de los Ãºltimos 20 dÃ­as
 
 ####################################################################
 resultados_dif <- apply(resultados, 2, diff)
-# Diferencias de los últimos 20 días
+# Diferencias de los Ãºltimos 20 dÃ­as
 diferencias <- as.data.frame(tail(resultados_dif,20))
-# Promedio de variaciones de los últimos 20 días por variavle
+# Promedio de variaciones de los Ãºltimos 20 dÃ­as por variavle
 media_dif_var <- apply(diferencias, 2, mean)
 
 ######################################################################
-# MEJOR DESEMPEÑO
+# MEJOR DESEMPEÃ‘O
 ######################################################################
-# Var con mejor desempeño
-mejor_desempeño <- order(media_dif_var[media_dif_var > 0 ])
-mejor_desempeño
+# Var con mejor desempeÃ±o
+mejor_desempeÃ±o <- order(media_dif_var[media_dif_var > 0 ])
+mejor_desempeÃ±o
 #head(resultados[45])
-mejor_desempeño_10 <- mejor_desempeño[c(1:10)]
-plot.ts(resultados[c(mejor_desempeño_10)], plot.type = "multiple")
+mejor_desempeÃ±o_10 <- mejor_desempeÃ±o[c(1:10)]
+plot.ts(resultados[c(mejor_desempeÃ±o_10)], plot.type = "multiple")
 
-# Màximo de variaciones de los últimos 20 días por por día
+# MÃ ximo de variaciones de los Ãºltimos 20 dÃ­as por por dÃ­a
 maximo_dif_dia <- apply(diferencias, 1, max)
-# Máximo de todas las variables
+# MÃ¡ximo de todas las variables
 max(maximo_dif_dia)
 which.max(maximo_dif_dia)
 plot.ts(resultados[which.max(maximo_dif_dia)])
 
 
 ######################################################################
-# PEOR DESEMPEÑO
+# PEOR DESEMPEÃ‘O
 ######################################################################
 
-# Var con peor desempeño
-peor_desempeño <- order(media_dif_var[media_dif_var <=0 ] , decreasing = TRUE)
-peor_desempeño
+# Var con peor desempeÃ±o
+peor_desempeÃ±o <- order(media_dif_var[media_dif_var <=0 ] , decreasing = TRUE)
+peor_desempeÃ±o
 #head(resultados[22])
 #head(resultados[45])
-peor_desempeño_10 <- peor_desempeño[c(1:10)]
-plot.ts(resultados[c(peor_desempeño_10)], plot.type = "multiple")
+peor_desempeÃ±o_10 <- peor_desempeÃ±o[c(1:10)]
+plot.ts(resultados[c(peor_desempeÃ±o_10)], plot.type = "multiple")
 
-# Mínimo de variaciones de los últimos 20 días por por día
+# MÃ­nimo de variaciones de los Ãºltimos 20 dÃ­as por por dÃ­a
 minimo_dif_dia <- apply(diferencias, 1, min)
 # Menor de todas las variables
 min(minimo_dif_dia)
@@ -303,14 +303,14 @@ plot.ts(resultados[which.min(minimo_dif_dia)])
 
 names(resultados)
 ####################################################################
-# Evaluacion gràfica
+# Evaluacion grÃ fica
 ####################################################################
 plot.ts(resultados$NVDA.Open)
 plot.ts(data2$NVDA.Open, col="blue")
 plot.ts(diff(resultados$NVDA.Open,1))
 plot.ts(diff(resultados$NVDA.Open,12))
 
-# Información directo del mercado
+# InformaciÃ³n directo del mercado
 candleChart(NVDA, multi.col = TRUE)
 chartSeries(NVDA) 
 addMACD() 
