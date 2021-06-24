@@ -1,7 +1,7 @@
 #############################################################################
 #############################################################################
 #
-#                      ANALISIS DE SENTIMIENTOS LIVEPERSON
+#                      ANALISIS DE SENTIMIENTOS CHAT
 #
 #############################################################################
 # Version: V1
@@ -28,7 +28,7 @@ library(readr)
 # descomprimir en la carpeta conversaciones
 
 
-setwd("C:/1 Satisfacción del Cliente/analisis_liveperson/conversaciones")
+setwd("")
 mes<- month(Sys.Date())
 archivo_actual<- list.files()
 k =length(archivo_actual)
@@ -56,7 +56,7 @@ abandonos <-conversaciones%>%
 
 # 
 
-setwd("C:/1 Satisfacción del Cliente/analisis_liveperson")
+setwd("")
 
 # diccionario lexico afinn
 # download.file("https://raw.githubusercontent.com/jboscomendoza/rpubs/master/sentimientos_afinn/lexico_afinn.en.es.csv",
@@ -159,7 +159,7 @@ prueba= conversaciones4%>%
 # GUARDAR EL ARCHIVO 
 
 write.csv(conversaciones4, "liveperson_mes.csv")
-write.csv(conversaciones4, "B:/BI/BI/SATISFACCION DE CLIENTE/liveperson_13102020/liveperson_mes.csv")
+write.csv(conversaciones4, "")
 
 #############################################################################
 ## INVESTIGACION DE PALABRAS CLAVES
